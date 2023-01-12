@@ -9,6 +9,9 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <None Remove="MySql.Data" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
 
@@ -18,6 +21,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1" />
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
   </ItemGroup>
 
 </Project>
