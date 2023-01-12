@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using JokesWebApp.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MvcJokeContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("MvcJokeContext") ?? throw new InvalidOperationException("Connection string 'MvcJokeContext' not found.")));
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
